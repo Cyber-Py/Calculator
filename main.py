@@ -3,6 +3,9 @@ import os
 
 def clear():
   os.system('clear')
+
+def prompt(_=''):
+  return input(f'{_}\n>')
   
 # BASIC MATH
 def add(*args):
@@ -90,37 +93,25 @@ def factorial(num):
 pi = math.pi
 
 # 2D SHAPES
-def sq(len, pa=False):
-  if pa:
-    return multiply(int(len), 4)
+def sq(len):
   return pow(int(len))
 
-def tri(b, h, pa=False):
-  if pa:
-    return multiply(int(b), 3)
+def tri(b, h):
   return int(b)*int(h)*0.5
 
-def quad(b, h, pa=False):
-  if pa:
-    return multiply(2, add(int(b), int(h)))
+def quad(b, h):
   return int(b)*int(h)
 
-def rhom(d1, d2, s=0, pa=False):
-  if pa:
-    return multiply(4, int(s))
+def rhom(d1, d2, s=0):
   return int(d1)*int(d2)*0.5
   
-def trap(b1, b2, h, d1=0,d2=0, pa=False):
-  if pa:
-    return add(b1, b2, d1, d2)
+def trap(b1, b2, h, d1=0,d2=0):
   return multiply(add(int(b1), int(b2)), int(h), 0.5)
 
-def circ(r, pa=False):
+def circ(r):
   return multiply(pi, pow(r))
 
-def regpoly(apo, s, ns, pa=False):
-  if pa:
-    return multiply(int(s), int(ns))
+def regpoly(apo, s, ns):
   return multiply(0.5, int(apo), multiply(int(s), int(ns)))
   
 # 3D SHAPES
@@ -175,24 +166,22 @@ def SqBasedPyramid(width, height, slant_height, volume = True, SA = False):
 
 # MENUS
 def BasicMathMenu():
-  print('''
-[1] Addition
+  print('''[1] Addition
 [2] Subtraction
 [3] Multiplication
-[4] Division  
-  ''')
-  choice2 = input()
+[4] Division''',end='')
+  choice2 = prompt()
   if choice2 == '1':
     clear()
-    num1 = int(input('First Number'))
-    num2 = int(input('Second Number'))  
-    num3 = int(input('Third Number'))
+    num1 = int(prompt('First Number'))
+    num2 = int(prompt('Second Number'))  
+    num3 = int(prompt('Third Number'))
     if num3 != 0:
-      num4 = int(input('Fourth Number'))
+      num4 = int(prompt('Fourth Number'))
       if num4 != 0:
-        num5 = int(input('Fifth Number'))
+        num5 = int(prompt('Fifth Number'))
         if num5 != 0:
-          num6 = int(input('Sixth Number'))
+          num6 = int(prompt('Sixth Number'))
           clear()
           print(add(num1, num2, num3, num4, num5, num6))
         else:
@@ -206,15 +195,15 @@ def BasicMathMenu():
       print(add(num1, num2, num3))
   elif choice2 == '2':
     clear()
-    num1 = int(input('First Number'))
-    num2 = int(input('Second Number'))  
-    num3 = int(input('Third Number'))
+    num1 = int(prompt('First Number'))
+    num2 = int(prompt('Second Number'))  
+    num3 = int(prompt('Third Number'))
     if num3 != 0:
-      num4 = int(input('Fourth Number'))
+      num4 = int(prompt('Fourth Number'))
       if num4 != 0:
-        num5 = int(input('Fifth Number'))
+        num5 = int(prompt('Fifth Number'))
         if num5 != 0:
-          num6 = int(input('Sixth Number'))
+          num6 = int(prompt('Sixth Number'))
           clear()
           print(subtract(num1, num2, num3, num4, num5, num6))
         else:
@@ -228,15 +217,15 @@ def BasicMathMenu():
       print(subtract(num1, num2, num3))
   elif choice2 == '3':
     clear()
-    num1 = int(input('First Number'))
-    num2 = int(input('Second Number'))
-    num3 = int(input('Third Number'))
+    num1 = int(prompt('First Number'))
+    num2 = int(prompt('Second Number'))
+    num3 = int(prompt('Third Number'))
     if num3 != 0:
-      num4 = int(input('Fourth Number'))
+      num4 = int(prompt('Fourth Number'))
       if num4 != 0:
-        num5 = int(input('Fifth Number'))
+        num5 = int(prompt('Fifth Number'))
         if num5 != 0:
-          num6 = int(input('Sixth Number'))
+          num6 = int(prompt('Sixth Number'))
           clear()
           print(multiply(num1, num2, num3, num4, num5, num6))
         else:
@@ -250,15 +239,15 @@ def BasicMathMenu():
       print(multiply(num1, num2, num3))
   elif choice2 == '4':
     clear()
-    num1 = int(input('First Number'))
-    num2 = int(input('Second Number'))  
-    num3 = int(input('Third Number'))
+    num1 = int(prompt('First Number'))
+    num2 = int(prompt('Second Number'))  
+    num3 = int(prompt('Third Number'))
     if num3 != 0:
-      num4 = int(input('Fourth Number'))
+      num4 = int(prompt('Fourth Number'))
       if num4 != 0:
-        num5 = int(input('Fifth Number'))
+        num5 = int(prompt('Fifth Number'))
         if num5 != 0:
-          num6 = int(input('Sixth Number'))
+          num6 = int(prompt('Sixth Number'))
           clear()
           print(divide(num1, num2, num3, num4, num5, num6))
         else:
@@ -276,115 +265,114 @@ def Shapes3DMenu():
 [2] Cylinder
 [3] Cone
 [4] Pyramids
-[5] Sphere
-  ''')
-  choice3 = input()
+[5] Sphere''',end='')
+  choice3 = prompt()
   if choice3 == '1':
     print('[1] Volume\n[2] Surface Area')
-    choice4 = input()
+    choice4 = prompt()
     if choice4 == '1':
       print('Side Length:')
-      sidelength = input()
+      sidelength = prompt()
       print(Cube(sidelength))
     else:
       print('Side Length:')
-      side_length = input()
+      side_length = prompt()
       print(Cube(side_length, volume = False))
   elif choice3 == '2':
     print('[1] Volume\n[2] Surface Area')
-    choice8 = input()
+    choice8 = prompt()
     if choice8 == '1':
       print('Radius:')
-      radius_for_cylinder = input()
+      radius_for_cylinder = prompt()
       print('Height:')
-      height = input()
+      height = prompt()
       print(Cylinder(radius_for_cylinder, height))
     else:
       print('Radius:')
-      radius_for_cylinder = input()
+      radius_for_cylinder = prompt()
       print('Height:')
-      height = input()
+      height = prompt()
       print(Cylinder(radius_for_cylinder, height, volume = False))
   elif choice3 == '3':
     print('[1] Volume\n[2] Surface Area')
-    choice9 = input()
+    choice9 = prompt()
     if choice9 == '1':
       print('Radius:')
-      radius_for_cone = input()
+      radius_for_cone = prompt()
       print('Height:')
-      height_for_cone = input()
+      height_for_cone = prompt()
       print('Slant Height:')
-      slant_height = input()
+      slant_height = prompt()
       if slant_height == '' or slant_height == '0':
         print(Cone(radius_for_cone, height_for_cone))
       else:
         print(Cone(radius_for_cone, height_for_cone, slant_height))
     else:
       print('Radius:')
-      radius_for_cone = input()
+      radius_for_cone = prompt()
       print('Height:')
-      height_for_cone = input()
+      height_for_cone = prompt()
       print('Slant Height:')
-      slant_height = input()
+      slant_height = prompt()
       if slant_height == '' or slant_height == '0':
         print(Cone(radius_for_cone, height_for_cone, volume = False))
       else:
         print(Cone(radius_for_cone, height_for_cone, slant_height, volume = False))
   elif choice3 == '4':
     print('[1] Square Based Pyramid\n[2] Rectangular Based Pyramid')
-    choice11 = input()
+    choice11 = prompt()
     if choice11 == '1':
       print('[1] Volume\n[2] Surface Area')
-      choice20 = input()
+      choice20 = prompt()
       if choice20 == '1':
         print('Width:')
-        width = input()
+        width = prompt()
         print('Height:')
-        height_for_pyramid1 = input()
+        height_for_pyramid1 = prompt()
         print('Slant_height')
-        SH_for_pyramid1 = input()
+        SH_for_pyramid1 = prompt()
         if SH_for_pyramid1 == '' or SH_for_pyramid1 == '0':
           print(SqBasedPyramid(width, height_for_pyramid1))
         else:
           print(SqBasedPyramid(width, height, slant_height))
       else:
         print('Width:')
-        width = input()
+        width = prompt()
         print('Slant_height')
-        SH_for_pyramid1 = input()
+        SH_for_pyramid1 = prompt()
         if SH_for_pyramid1 == '' or SH_for_pyramid1 == '0':
           print(SqBasedPyramid(width, SH_for_pyramid1, volume = False))
         else:
           print(SqBasedPyramid(width, SH_for_pyramid1, volume = False))
     else:
       print('[1] Volume\n[2] Surface Area')
-      choice20 = input()
+      choice20 = prompt()
       if choice20 == '1':
         print('Length:')
-        length_for_pyramid2 = input()
+        length_for_pyramid2 = prompt()
         print('Height:')
-        height_for_pyramid2 = input()
+        height_for_pyramid2 = prompt()
         print('Width:')
-        width_for_pyramid2 = input()
+        width_for_pyramid2 = prompt()
         print(RecBasedPyramid(length_for_pyramid2, height_for_pyramid2, width_for_pyramid2))
       else:
         print('Length:')
-        length_for_pyramid2 = input()
+        length_for_pyramid2 = prompt()
         print('Height:')
-        height_for_pyramid2 = input()
+        height_for_pyramid2 = prompt()
         print('Width:')
-        width_for_pyramid2 = input()
+        width_for_pyramid2 = prompt()
         print(RecBasedPyramid(length_for_pyramid2, height_for_pyramid2, width_for_pyramid2, volume = False))   
   else:
     print('[1] Volume\n[2] Surface Area')
-    choice12 = input()
+    choice12 = prompt()
     if choice12 == '1':
       print('Radius:')
-      radius_for_sphere = input()
+      radius_for_sphere = prompt()
       print(Sphere(radius_for_sphere))
     else:
       print('Radius:')
-      radius_for_sphere = input()
+      radius_for_sphere = prompt()
       print(Sphere(radius_for_sphere, volume = False))
 
 def AdvancedMathMenu():
@@ -393,29 +381,28 @@ def AdvancedMathMenu():
 [3] Exponents
 [4] Root
 [5] Absolute Value
-[6] Scientific Notation (Integers)
-''')
-  c = input()
+[6] Scientific Notation (Integers)''',end='')
+  c = prompt()
   clear()
   if c == '1':
-    Radicand = input('Radicand')
+    Radicand = prompt('Radicand')
     print(sqrt(Radicand))
   elif c == '2':
-    n = input('Number')
+    n = prompt('Number')
     print(permutate(n))
   elif c == '3':
-    base = input('Base')
-    power = input('Power')
+    base = prompt('Base')
+    power = prompt('Power')
     print(pow(base, power))
   elif c == '4':
-    Radicand = input('Radicand')
-    Index = input('Index')
+    Radicand = prompt('Radicand')
+    Index = prompt('Index')
     print(root(Radicand, Index))
   elif c == '5':
-    num = input('Number')
+    num = prompt('Number')
     print(abs(int(num)))
   elif c == '6':
-    num = input('Number')
+    num = prompt('Number')
     print(scinot(num))
 
 def Shapes2DMenu():
@@ -426,73 +413,73 @@ def Shapes2DMenu():
 [5] Rhombus
 [6] Trapezoid
 [7] Circle
-[8] Regular Polygon''')
-  c = input()
+[8] Regular Polygon''',end='')
+  c = prompt()
   if c == '1':
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
     if pa:
-      s = input('Side Length')
+      s = prompt('Side Length')
       print(multiply(3, s))
     else:
-      b = input('Base')
-      h = input('Height')
+      b = prompt('Base')
+      h = prompt('Height')
       print(tri(b, h))
   elif c == '2':
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
-    len = input('Side Length')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
+    len = prompt('Side Length')
     if pa:
       print(multiply(4, len))
     else:  
       print(sq(len))
   elif c == '3':
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
-    l = input('Length')
-    w = input('Width')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
+    l = prompt('Length')
+    w = prompt('Width')
     if pa:
       print(multiply(2, add(l, w)))
     else:
       print(quad(l, w))
   elif c == '4':
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
-    l = input('Length')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
+    l = prompt('Length')
     if pa:
-      d = input('Diagonal Hieght')
+      d = prompt('Diagonal Hieght')
       print(multiply(2, add(l, d)))
     else:
       print(multiply(2, add(l, w)))
       print(quad(l, h))
   elif c == '5':
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
     if pa:
-      s = input('Side Length')
+      s = prompt('Side Length')
       return multiply(4, int(s))
-    d1 = input('Vertical Diagonal')
-    d2 = input('Horizontal Diagonal')
+    d1 = prompt('Vertical Diagonal')
+    d2 = prompt('Horizontal Diagonal')
     print(rhom(d1, d2))
   elif c == '6':
-    b1 = input('First Base')
-    b2 = input('Second Base')
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
+    b1 = prompt('First Base')
+    b2 = prompt('Second Base')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
     if pa:
-      d1 = input('First Slant Height')
-      d2 = input('Second Slant Height')
+      d1 = prompt('First Slant Height')
+      d2 = prompt('Second Slant Height')
       print(trap(b1, b2, 0, d1, d1, pa))
     else:
-      h = input('Height')
+      h = prompt('Height')
       print(trap(b1, b2, h))
   elif c == '7':
-    r = input('Radius')
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
+    r = prompt('Radius')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
     if pa:
       print(multiply(pi, 2, r))
     else:
       print(circ(r))
   elif c == '8':
-    s = input('Side Length')
-    nside = input('Number of Sides')
-    pa = input('Perimeter or Area? [p if perimeter, ENTER if area]')
+    s = prompt('Side Length')
+    nside = prompt('Number of Sides')
+    pa = prompt('Perimeter or Area? [p if perimeter, ENTER if area]')
     if not(pa):
-      apo = input('Apothem')
+      apo = prompt('Apothem')
       print(regpoly(apo, s, nside))
     else:
       print(multiply(s, nside))
@@ -500,16 +487,16 @@ def Shapes2DMenu():
 def TrigonometryMenu():
   print('''[1] Sine
 [2] Cosine
-[3] Tangent''')
-  c = input()
+[3] Tangent''', end='')
+  c = prompt()
   if c == '1':
-    n = input('Number')
+    n = prompt('Number')
     print(sine(n))
   elif c == '2':
-    n = input('Number')
+    n = prompt('Number')
     print(cosine(n))
   elif c == '3':
-    n = input('Number')
+    n = prompt('Number')
     print(tangent(n))
 
 def Menu():
@@ -517,8 +504,8 @@ def Menu():
 [2] Advanced Math
 [3] 2D Shapes 
 [4] 3D Shapes
-[5] Trigonometry''')
-  choice1 = input()
+[5] Trigonometry''',end='')
+  choice1 = prompt()
   clear()
   if choice1 == '1':
     BasicMathMenu()
