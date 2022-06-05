@@ -3,6 +3,7 @@ import os
 
 def clear():
   os.system('clear')
+  
 # BASIC MATH
 def add(*args):
   total = 0
@@ -33,6 +34,7 @@ def divide(*args):
     else:
       total /= int(i)
   return total
+  
 # TRIGONOMETRY
 def cosine(num):
   return math.cos(int(num))
@@ -42,6 +44,7 @@ def tangent(num):
 
 def sine(num):
   return math.sin(int(num))
+  
 # ADVANCED MATH
 def pow(base, power = 2):
   return int(base) ** int(power)
@@ -85,6 +88,7 @@ def factorial(num):
   return total
 
 pi = math.pi
+
 # 2D SHAPES
 def sq(len, pa=False):
   if pa:
@@ -118,6 +122,7 @@ def regpoly(apo, s, ns, pa=False):
   if pa:
     return multiply(int(s), int(ns))
   return multiply(0.5, int(apo), multiply(int(s), int(ns)))
+  
 # 3D SHAPES
 def Cube(side_length, volume = True, SA = False):
   if volume:
@@ -151,10 +156,8 @@ def Cone(radius, height, slant_height = 0, volume = True, SA = False):
 
 def RecBasedPyramid(length, height, width, slant_height1 = 0, slant_height2 = 0, volume = True, SA = False):
   if slant_height1 == 0:
-    # s
     slant_height1 = sqrt(add(pow(int(height)), divide(pow(int(length)), 4)))
   if slant_height2 == 0:
-    # t
     slant_height2 = sqrt(add(pow(int(height)), divide(pow(int(width)), 4)))
   if volume:
     return multiply(divide(1, 3), int(length), int(height), int(width))
@@ -163,7 +166,6 @@ def RecBasedPyramid(length, height, width, slant_height1 = 0, slant_height2 = 0,
 
 def SqBasedPyramid(width, height, slant_height, volume = True, SA = False):
   if slant_height == 0:
-    # s
     slant_height = sqrt(add(pow(int(height)), divide(pow(int(width)), 4)))
     sqslant = pow(int(slant_height))
   if volume:
@@ -304,7 +306,6 @@ def Shapes3DMenu():
       height = input()
       print(Cylinder(radius_for_cylinder, height, volume = False))
   elif choice3 == '3':
-    # Cone
     print('[1] Volume\n[2] Surface Area')
     choice9 = input()
     if choice9 == '1':
@@ -375,7 +376,6 @@ def Shapes3DMenu():
         width_for_pyramid2 = input()
         print(RecBasedPyramid(length_for_pyramid2, height_for_pyramid2, width_for_pyramid2, volume = False))   
   else:
-    # Sphere
     print('[1] Volume\n[2] Surface Area')
     choice12 = input()
     if choice12 == '1':
@@ -387,9 +387,6 @@ def Shapes3DMenu():
       radius_for_sphere = input()
       print(Sphere(radius_for_sphere, volume = False))
 
-
-
-  
 def AdvancedMathMenu():
   print('''[1] Square Root
 [2] Permutation
